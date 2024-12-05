@@ -1,23 +1,28 @@
 int main() {
-	int i, j, n, arr[1001],tmp;
+	int n;
+	int arr[1000];
+	int temp = 0;
 
 	scanf("%d", &n);
-	for (i = 0; i < n; i++) {
-		scanf("%d", &arr[i]);
+
+	for (int i = 0; i < n; i++) {
+		scanf("%d",&arr[i]);
 	}
-	for (i = 0; i < n; i++) {
-		for (j = n - 1; j > i; j--) {
-			if (arr[j] < arr[j - 1]) {
-				tmp = arr[j];
-				arr[j] = arr[j - 1];
-				arr[j - 1] = tmp;
+
+	for (int i = 0; i < n ; i++) {
+		for (int j = 0; j < n - (i + 1); j++) {
+			if (arr[j] > arr[j + 1] && j != n - 1) {
+				temp = arr[j]; 
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
 			}
 		}
 	}
-
-	for (i = 0; i < n; i++) {
-		printf("%d\n", arr[i]);
+    
+	for (int i = 0; i < n ; i++) {
+		printf("%d\n",arr[i]);
 	}
+
 
 	return 0;
 }
