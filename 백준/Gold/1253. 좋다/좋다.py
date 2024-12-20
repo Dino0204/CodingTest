@@ -14,13 +14,16 @@ for i in range(n):
     if r == i:
       r -= 1
 
-    # l과 r이 i와 다른 경우
+    # l과 r이 i와 다른 경우 & l과 r이 같지 않은 경우
     if l != r:
+      # l와 r이 가리키는 값의 합이 i와 같은 경우
       if arr[l] + arr[r] == arr[i]:
         is_Good[i] = True
         break
+      # l와 r이 가리키는 값의 합이 i보다 작은 경우
       elif arr[l] + arr[r] < arr[i]:
         l += 1
+      # l와 r이 가리키는 값의 합이 i보다 큰 경우
       else:
         r -= 1
 
